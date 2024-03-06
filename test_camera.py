@@ -164,3 +164,34 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+'''
+Error:
+
+connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\site-packages\websockets\legacy\server.py", line 236, in handler     
+    await self.ws_handler(self)
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\site-packages\websockets\legacy\server.py", line 1175, in _ws_handler
+    return await cast(
+  File "c:/Users/Abdul Rafey/OneDrive/Desktop/electron app/electron-quick-start/python/camera.py", line 31, in start_server
+    p.start()
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\context.py", line 327, in _Popen
+    return Popen(process_obj)
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\popen_spawn_win32.py", line 93, in __init__
+    reduction.dump(process_obj, to_child)
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\reduction.py", line 60, in dump
+    ForkingPickler(file, protocol).dump(obj)
+TypeError: cannot pickle '_asyncio.Future' object
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\spawn.py", line 107, in spawn_main
+    new_handle = reduction.duplicate(pipe_handle,
+  File "C:\Users\Abdul Rafey\AppData\Local\Programs\Python\Python38\lib\multiprocessing\reduction.py", line 79, in duplicate
+    return _winapi.DuplicateHandle(
+OSError: [WinError 6] The handle is invalid
+'''
