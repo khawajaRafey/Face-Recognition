@@ -34,7 +34,6 @@ def process_camera(id, camera_name, websocket):
         known_face_encodings = []
         known_face_names = []
 
-        # se
         for row in results:
             name, image_encodings = row
             for encoding in pickle.loads(image_encodings):
@@ -146,11 +145,8 @@ async def start_server(websocket, path):
             if data:
                 # Extract the subject ID from the JSON data
                 subject_id = data.get('subject_id')
-                if subject_id == 1:
-                    camera_name = 0
-                else:
-                    camera_name = "https://192.168.79.78:8080/video"
-                            
+                camera_name = data.get('ip')
+                                       
                 # Start camera capture in a separate process
                 p = Process(target=process_camera, args=(subject_id, camera_name, websocket))
                 p.start()
